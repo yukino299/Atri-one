@@ -2,6 +2,16 @@
 
 这是基于原 Electron 项目 `renderer` 界面改编的 React/Vite 版本，保留了原项目的工业风视觉体系、字体、纹理、侧边栏、页面布局、抽屉、弹窗和图表区域。
 
+## 项目截图
+
+### 待办事项
+
+![待办事项页面](docs/images/tasks-dashboard.png)
+
+### 时间规划
+
+![时间规划页面](docs/images/time-planning.png)
+
 ## 技术栈
 
 - React 18
