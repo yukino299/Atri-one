@@ -1,0 +1,163 @@
+.tree-node {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  border: 1px solid #d1d3d0;
+  border-left: 3px solid transparent;
+  background: rgba(255,255,252,.68);
+  color: #1c2024;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tree-node:hover,
+.tree-node.active {
+  border-left-color: var(--yellow);
+  background: #fff;
+  box-shadow: 2px 2px 0 rgba(255,244,79,.72);
+}
+
+.tree-node b {
+  color: #6b7073;
+  font: 700 10px/1 var(--mono);
+}
+
+.lit-graph-canvas .chart-card {
+  height: 100%;
+  border: 0;
+  box-shadow: none;
+}
+
+.assistant-drawer.open {
+  transform: translateX(0);
+}
+
+.page.page-entering .task-item,
+.page.page-entering .lit-item,
+.page.page-entering .report-item,
+.page.page-entering .repo-item,
+.page.page-entering .release-item,
+.page.page-entering .kan-card,
+.page.page-entering .plan-item,
+.page.page-entering .fit-plan-item,
+.page.page-entering .fit-day-row,
+.page.page-entering .tree-node {
+  animation: reactRowDeploy .54s calc(.12s + var(--row-index, 0) * 42ms) cubic-bezier(.2,.82,.2,1) both;
+}
+
+.task-item,
+.lit-item,
+.report-item,
+.repo-item,
+.release-item,
+.kan-card,
+.plan-item,
+.fit-plan-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.page.page-entering .task-item:nth-child(1),
+.page.page-entering .lit-item:nth-child(1),
+.page.page-entering .report-item:nth-child(1),
+.page.page-entering .repo-item:nth-child(1),
+.page.page-entering .release-item:nth-child(1),
+.page.page-entering .kan-card:nth-child(1),
+.page.page-entering .plan-item:nth-child(1),
+.page.page-entering .fit-plan-item:nth-child(1),
+.page.page-entering .fit-day-row:nth-child(1),
+.page.page-entering .tree-node:nth-child(1) { --row-index: 0; }
+
+.page.page-entering .task-item:nth-child(2),
+.page.page-entering .lit-item:nth-child(2),
+.page.page-entering .report-item:nth-child(2),
+.page.page-entering .repo-item:nth-child(2),
+.page.page-entering .release-item:nth-child(2),
+.page.page-entering .kan-card:nth-child(2),
+.page.page-entering .plan-item:nth-child(2),
+.page.page-entering .fit-plan-item:nth-child(2),
+.page.page-entering .fit-day-row:nth-child(2),
+.page.page-entering .tree-node:nth-child(2) { --row-index: 1; }
+
+.page.page-entering .task-item:nth-child(3),
+.page.page-entering .lit-item:nth-child(3),
+.page.page-entering .report-item:nth-child(3),
+.page.page-entering .repo-item:nth-child(3),
+.page.page-entering .release-item:nth-child(3),
+.page.page-entering .kan-card:nth-child(3),
+.page.page-entering .plan-item:nth-child(3),
+.page.page-entering .fit-plan-item:nth-child(3),
+.page.page-entering .fit-day-row:nth-child(3),
+.page.page-entering .tree-node:nth-child(3) { --row-index: 2; }
+
+.page.page-entering .task-item:nth-child(4),
+.page.page-entering .lit-item:nth-child(4),
+.page.page-entering .report-item:nth-child(4),
+.page.page-entering .repo-item:nth-child(4),
+.page.page-entering .release-item:nth-child(4),
+.page.page-entering .kan-card:nth-child(4),
+.page.page-entering .plan-item:nth-child(4),
+.page.page-entering .fit-plan-item:nth-child(4),
+.page.page-entering .fit-day-row:nth-child(4),
+.page.page-entering .tree-node:nth-child(4) { --row-index: 3; }
+
+.page.page-entering .task-item::before,
+.page.page-entering .lit-item::before,
+.page.page-entering .report-item::before,
+.page.page-entering .repo-item::before,
+.page.page-entering .release-item::before,
+.page.page-entering .kan-card::before,
+.page.page-entering .plan-item::before,
+.page.page-entering .fit-plan-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  height: 2px;
+  background: linear-gradient(90deg, #df0018, #df0018 62%, transparent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  animation: reactDeployTracer .68s calc(.14s + var(--row-index, 0) * 42ms) cubic-bezier(.2,.82,.2,1) both;
+  pointer-events: none;
+}
+
+.page.page-entering .lit-item::before,
+.page.page-entering .report-item::before,
+.page.page-entering .repo-item::before,
+.page.page-entering .release-item::before,
+.page.page-entering .kan-card::before,
+.page.page-entering .plan-item::before,
+.page.page-entering .fit-plan-item::before {
+  background: linear-gradient(90deg, var(--yellow), var(--yellow) 62%, transparent);
+}
+
+@keyframes reactRowDeploy {
+  from {
+    opacity: 0;
+    transform: translate3d(0,16px,0);
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+    clip-path: inset(0);
+  }
+}
+
+@keyframes reactDeployTracer {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  28% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .92;
+    transform: scaleX(1);
+  }
+}
