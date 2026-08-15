@@ -28,4 +28,4 @@ http://127.0.0.1:5174
 ```bash
 npm run build
 ```
-![Uploading image.png…]()
+
